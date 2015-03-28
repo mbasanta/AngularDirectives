@@ -23,6 +23,14 @@ angular.module('app')
         $scope.collapse = function() {
           $scope.collapsed= !$scope.collapsed;
         };
+
+        $scope.removeFriend = function(friend) {
+          var idx = $scope.user.friends.indexOf(friend);
+          if (idx > -1) {
+            $scope.user.friends.splice(idx, 1);
+          }
+        };
+
       }
 
     };
