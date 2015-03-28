@@ -1,7 +1,8 @@
 (function(angular) {
 
 angular.module('app').controller('MainCtrl', function($scope) {
-  $scope.user = {
+
+  $scope.user1 = {
     name: 'Luke Skywalker',
     address: {
       street: 'PO Box 123',
@@ -14,7 +15,20 @@ angular.module('app').controller('MainCtrl', function($scope) {
       'Chewy'
     ]
   };
-  console.log($scope);
+
+  $scope.user2 = {
+    name: 'Han Solo',
+    address: {
+      street: 'PO Box 123',
+      city: 'Mos Eisley',
+      planet: 'Tattoine'
+    },
+    friends: [
+      'Luk',
+      'Leia',
+      'Chewy'
+    ]
+  };
 });
 
 }(angular));

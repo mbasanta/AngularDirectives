@@ -8,13 +8,21 @@ angular.module('app')
       restrict: 'E',
       //replace: true, // Deprecated
       scope: {
-        user: '='
+        user: '=',
+        initialCollapsed: '@collapsed'
       },
       controller: function($scope) {
+
+        //$scope.collapsed = false;
+        $scope.collapsed = ($scope.initialCollapsed === 'true');
+
         $scope.knightMe = function(user) {
           user.rank = 'knight';
         };
-        console.log($scope);
+
+        $scope.collapse = function() {
+          $scope.collapsed= !$scope.collapsed;
+        };
       }
 
     };
