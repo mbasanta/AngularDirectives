@@ -7,7 +7,9 @@ angular.module('app')
       templateUrl: 'userInfoCard.html',
       restrict: 'E',
       //replace: true, // Deprecated
-      scope: true,
+      scope: {
+        user: '='
+      },
       controller: function($scope) {
         $scope.knightMe = function(user) {
           user.rank = 'knight';
