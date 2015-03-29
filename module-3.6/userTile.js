@@ -8,11 +8,6 @@ angular.module('app').directive('userTile', function() {
       user: '='
     },
     templateUrl: 'userTile.html',
-    controller: function($scope) {
-      $scope.select = function() {
-        $scope.user.selected = !$scope.user.selected;
-      };
-    }
   };
 
 });
