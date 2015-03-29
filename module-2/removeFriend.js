@@ -22,7 +22,7 @@ angular.module('app')
         };
 
         $scope.confirmRemove = function() {
-          $scope.notifyParent({'friend':'Han'});
+          $scope.notifyParent();
         };
 
       }
