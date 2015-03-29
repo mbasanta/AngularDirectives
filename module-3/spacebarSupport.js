@@ -9,15 +9,12 @@ angular.module('app').directive('spacebarSupport', function() {
         var vidEl = el[0];
 
         if(evt.keyCode === 32) {
-
           if (vidEl.paused) {
             vidEl.play();
           } else {
             vidEl.pause();
           }
-
         }
-
       });
 
     }
