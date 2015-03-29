@@ -12,10 +12,11 @@
 
   <script src="app.js"></script>
   <script src="MainCtrl.js"></script>
+  <script src="spacebarSupport.js"></script>
 </head>
 
 <body ng-controller="MainCtrl" class="container" style="padding-top: 30px">
-  <video id="vid" controls preload="none"
+  <video id="vid" spacebar-support controls preload="none"
          poster="http://media.w3.org/2010/05/sintel/poster.png">
     <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></source>
     <source src="http://media.w3.org/2010/05/sintel/trailer.webm5" type="video/webm5"></source>
