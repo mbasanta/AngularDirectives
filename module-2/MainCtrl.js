@@ -13,7 +13,8 @@ angular.module('app').controller('MainCtrl', function($scope) {
       'Han',
       'Leia',
       'Chewy'
-    ]
+    ],
+    level: 0
   };
 
   $scope.user2 = {
@@ -27,7 +28,8 @@ angular.module('app').controller('MainCtrl', function($scope) {
       'Luk',
       'Leia',
       'Chewy'
-    ]
+    ],
+    level: 1
   };
 });
 

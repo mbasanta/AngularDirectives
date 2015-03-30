@@ -11,6 +11,29 @@ angular.module('app')
         user: '=',
         initialCollapsed: '@collapsed'
       },
+      link: function(scope, el, attrs) {
+        scope.nextState = function() {
+          scope.user.level++;
+          scope.user.level = scope.user.level % 3;
+          setState();
+        };
+
+        function setState() {
+          switch(scope.user.level) {
+            case 0:
+              el.find('.panel-body').css('background-color', 'white');
+              return;
+            case 1:
+              el.find('.panel-body').css('background-color', 'yellow');
+              return;
+            case 2:
+              el.find('.panel-body').css('background-color', 'red');
+              return;
+          }
+        }
+
+        setState();
+      },
       controller: function($scope) {
 
         //$scope.collapsed = false;
