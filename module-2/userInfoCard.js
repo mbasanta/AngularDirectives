@@ -16,7 +16,7 @@ angular.module('app')
 
         $scope.nextState = function() {
           $scope.user.level++;
-          $scope.user.level = $scope.user.level % 3;
+          $scope.user.level = $scope.user.level % 4;
         };
         $scope.collapsed = ($scope.initialCollapsed === 'true');
 

@@ -5,18 +5,11 @@ angular.module('app')
   .directive('stateDisplay', function() {
     return {
       link: function(scope, el, attrs) {
-        scope.$watch(attrs.stateDisplay, function(newVal, oldVal) {
-          switch(newVal) {
-            case 0:
-              el.css('background-color', 'white');
-              return;
-            case 1:
-              el.css('background-color', 'yellow');
-              return;
-            case 2:
-              el.css('background-color', 'red');
-              return;
-          }
+        var params = attrs.stateDisplay.split(' ');
+        var linkVar = params[0];
+
+        scope.$watch(linkVar, function(newVal, oldVal) {
+          el.css('background-color', params[newVal + 1]);
         });
       }
     };
