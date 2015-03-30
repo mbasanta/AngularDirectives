@@ -2,26 +2,26 @@
 'use strict';
 
 angular.module('app')
-  .directive('userInfoCard', function() {
+  .directive('personInfoCard', function() {
     return {
 
-      templateUrl: 'userInfoCard.html',
+      templateUrl: 'personInfoCard.html',
       restrict: 'E',
       //replace: true, // Deprecated
       scope: {
-        user: '=',
+        person: '=',
         initialCollapsed: '@collapsed'
       },
       controller: function($scope) {
 
         $scope.nextState = function() {
-          $scope.user.level++;
-          $scope.user.level = $scope.user.level % 4;
+          $scope.person.level++;
+          $scope.person.level = $scope.person.level % 4;
         };
         $scope.collapsed = ($scope.initialCollapsed === 'true');
 
-        $scope.knightMe = function(user) {
-          user.rank = 'knight';
+        $scope.knightMe = function(person) {
+          person.rank = 'knight';
         };
 
         $scope.collapse = function() {
@@ -29,9 +29,9 @@ angular.module('app')
         };
 
         $scope.removeFriend = function(friend) {
-          var idx = $scope.user.friends.indexOf(friend);
+          var idx = $scope.person.friends.indexOf(friend);
           if (idx > -1) {
-            $scope.user.friends.splice(idx, 1);
+            $scope.person.friends.splice(idx, 1);
           }
         };
 

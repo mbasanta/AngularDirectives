@@ -1,7 +1,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading" ng-click="collapse()">
-    <span state-display="user.level user-ok user-warning user-problem user-error">
-      Name: {{user.name}}
+    <span state-display="person.level user-ok user-warning user-problem user-error">
+      Name: {{person.name}}
     </span>
   </div>
   <div class="panel-body" ng-hide="collapsed">
@@ -10,16 +10,16 @@
 
     <h4>Friends</h4>
     <ul>
-      <li ng-repeat="friend in user.friends">
+      <li ng-repeat="friend in person.friends">
         {{friend}}
         <remove-friend method="removeFriend(friend)"></remove-friend>
       </li>
     </ul>
 
-    <div ng-show="!!user.rank">
-      Rank: {{user.rank}}
+    <div ng-show="!!person.rank">
+      Rank: {{person.rank}}
     </div>
-    <button ng-show="!user.rank" class="btn btn-success" ng-click="knightMe(user)">Knight Me</button>
+    <button ng-show="!person.rank" class="btn btn-success" ng-click="knightMe(person)">Knight Me</button>
     <button class="btn btn-info" ng-click="nextState()">Next State</button>
   </div>
 </div>
