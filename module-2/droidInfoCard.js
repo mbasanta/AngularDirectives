@@ -13,16 +13,6 @@ angular.module('app')
         initialCollapsed: '@collapsed'
       },
       controller: function($scope) {
-
-        $scope.nextState = function() {
-          $scope.droid.level++;
-          $scope.droid.level = $scope.droid.level % 4;
-        };
-        $scope.collapsed = ($scope.initialCollapsed === 'true');
-
-        $scope.collapse = function() {
-          $scope.collapsed= !$scope.collapsed;
-        };
       }
 
     };

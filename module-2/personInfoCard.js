@@ -14,18 +14,8 @@ angular.module('app')
       },
       controller: function($scope) {
 
-        $scope.nextState = function() {
-          $scope.person.level++;
-          $scope.person.level = $scope.person.level % 4;
-        };
-        $scope.collapsed = ($scope.initialCollapsed === 'true');
-
         $scope.knightMe = function(person) {
           person.rank = 'knight';
-        };
-
-        $scope.collapse = function() {
-          $scope.collapsed= !$scope.collapsed;
         };
 
         $scope.removeFriend = function(friend) {
