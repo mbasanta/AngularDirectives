@@ -13,7 +13,9 @@ angular.module('app').directive('userPanel', function() {
     },
     controller: function($scope) {
 
-      $scope.nextState = function() {
+      $scope.nextState = function(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
         $scope.level++;
         $scope.level = $scope.level % 4;
       };
