@@ -7,9 +7,11 @@ angular.module('app')
       link: function(scope, el, attrs) {
         var params = attrs.stateDisplay.split(' ');
         var linkVar = params[0];
+        var classes = params.slice(1);
 
         scope.$watch(linkVar, function(newVal, oldVal) {
-          el.css('background-color', params[newVal + 1]);
+          el.removeClass(classes.join(' '));
+          el.addClass(classes[newVal]);
         });
       }
     };
