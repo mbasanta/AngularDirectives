@@ -4,7 +4,7 @@
 angular.module('app').directive('myTransclude', function() {
 
   return {
-    restrict: 'E',
+    restrict: 'A',
     transclude: 'element',
     link: function(scope, el, attrs, ctrl, transclude) {
       transclude(scope, function(clone) {
