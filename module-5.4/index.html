@@ -15,7 +15,13 @@
 </head>
 
 <body ng-controller="MainCtrl" class="container" style="padding-top: 30px">
-  <h1>Hello Plunker!</h1>
+  <h1 class="well">Bounty Hunters</h1>
+  <div ng-repeat="hunter in bountyHunters">
+    <span>{{hunter.name}}</span>
+  </div>
+  <hr>
+  <button class="btn btn-primary" ng-click="add()">Add</button>
+  <button class="btn btn-danger" ng-click="remove()">Remove</button>
 </body>
 
 </html>
