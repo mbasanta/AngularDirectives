@@ -12,13 +12,13 @@
 
   <script src="app.js"></script>
   <script src="MainCtrl.js"></script>
-  <script src="myRepeat.js"></script>
+  <script src="userList.js"></script>
 </head>
 
 <body ng-controller="MainCtrl" class="container" style="padding-top: 30px">
   <h1 class="well">Bounty Hunters</h1>
-  <div my-repeat="hunter in bountyHunters">
-    <span>Name: {{hunter.name}}</span>
+  <div user-list="hunter in bountyHunters">
+    <span>Age: {{hunter.age}}</span>
   </div>
   <hr>
   <button class="btn btn-primary" ng-click="add()">Add</button>

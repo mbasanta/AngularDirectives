@@ -1,13 +1,13 @@
 (function(angular) {
 'use strict';
 
-angular.module('app').directive('myRepeat', function() {
+angular.module('app').directive('userList', function($compile) {
 
   return {
     restrict: 'A',
     transclude: 'element',
     link: function(scope, el, attrs, ctrl, transclude) {
-      var pieces = attrs.myRepeat.split(' ');
+      var pieces = attrs.userList.split(' ');
       var itemString = pieces[0];
       var collectionName = pieces[2];
       var elements = [];
@@ -25,9 +25,17 @@ angular.module('app').directive('myRepeat', function() {
           var childScope = scope.$new();
           childScope[itemString] = collection[j];
           transclude(childScope, function(clone) {
-            el.before(clone);
+            var template = $compile(
+              '<div class="panel panel-primary">' +
+                '<div class="panel-heading">{{' + itemString + '.name}}</div>' +
+                '<div class="panel-body" />' +
+              '</div>');
+            var wrapper = template(childScope);
+            wrapper.find('.panel-body').append(clone);
+            el.before(wrapper);
+
             var item = {};
-            item.el = clone;
+            item.el = wrapper;
             item.scope = childScope;
             elements.push(item);
           });
