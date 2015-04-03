@@ -12,16 +12,18 @@ angular.module('app')
         person: '=',
         initialCollapsed: '@collapsed'
       },
+      controllerAs: 'vm',
+      bindToController: true,
       controller: function($scope) {
 
-        $scope.knightMe = function(person) {
+        this.knightMe = function(person) {
           person.rank = 'knight';
         };
 
-        $scope.removeFriend = function(friend) {
-          var idx = $scope.person.friends.indexOf(friend);
+        this.removeFriend = function(friend) {
+          var idx = this.person.friends.indexOf(friend);
           if (idx > -1) {
-            $scope.person.friends.splice(idx, 1);
+            this.person.friends.splice(idx, 1);
           }
         };
 
