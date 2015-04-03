@@ -36,11 +36,12 @@ angular.module('plunker').directive('vadar', function() {
 angular.module('plunker').directive('starkiller', function() {
   return {
     scope: true,
-    require: '^vadar',
-    link: function($scope, el, attrs, vadarCtrl) {
+    require: ['^vadar', '^emperor'],
+    link: function($scope, el, attrs, ctrls) {
       el.data('name', 'StarKiller');
-      el.data('master', vadarCtrl.name);
-      console.log('StarKiller\'s Master is ', vadarCtrl.name);
+      el.data('master', ctrls[0].name);
+      console.log('StarKiller\'s Master is ', ctrls[0].name);
+      console.log('StarKiller\'s Master\'s Master is ', ctrls[1].name);
     }
   };
 });
