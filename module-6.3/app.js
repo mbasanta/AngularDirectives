@@ -5,27 +5,30 @@ angular.module('plunker').controller('MainCtrl', function($scope) {
 });
 
 angular.module('plunker').directive('emperor', function() {
+  var name = 'The Emporer';
   return {
     scope: true,
-    link: {
-      pre: function($scope, el, attrs) {
-        el.data('name', 'The Emperor');
-        $scope.master = 'The Emperor';
-      }
+    controller: function($scope) {
+      this.name = name;
+    },
+    link: function($scope, el, attrs) {
+        el.data('name', name);
     }
   };
 });
 
 angular.module('plunker').directive('vadar', function() {
+  var name = 'Vadar';
   return {
     scope: true,
-    link: {
-      pre: function($scope, el, attrs) {
-        el.data('name', 'Vadar');
-        el.data('master', $scope.master);
-        console.log('Vadar\'s Master is  ', $scope.master);
-        $scope.master = 'Vadar';
-      }
+    require: '^emperor',
+    controller: function($scope) {
+      this.name = name;
+    },
+    link: function($scope, el, attrs, emperorCtrl) {
+      el.data('name', name);
+      el.data('master', emperorCtrl.name);
+      console.log('Vadar\'s Master is  ', emperorCtrl.name);
     }
   };
 });
@@ -33,12 +36,11 @@ angular.module('plunker').directive('vadar', function() {
 angular.module('plunker').directive('starkiller', function() {
   return {
     scope: true,
-    link: {
-      post: function($scope, el, attrs) {
-        el.data('name', 'StarKiller');
-        el.data('master', $scope.master);
-        console.log('StarKiller\'s Master is ', $scope.master);
-      }
+    require: '^vadar',
+    link: function($scope, el, attrs, vadarCtrl) {
+      el.data('name', 'StarKiller');
+      el.data('master', vadarCtrl.name);
+      console.log('StarKiller\'s Master is ', vadarCtrl.name);
     }
   };
 });
